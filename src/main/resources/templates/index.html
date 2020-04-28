@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<link th:replace="fragments/headLinks">
+<title>David's Java Blog</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div th:replace="fragments/navbar"></div>
+    <h1>My Journey Learning To Code</h1>
+    <div th:each="article:${articles}">
+      <div class="row">
+        <div class="col-md-12">
+<!-- I don't want to user cards, change to a striped table -->
+          <div class="card">
+            <h3 class="card-header" th:text="${article.title}"></h3>
+            <div class="card-body">
+<!-- do I need to show the author? -->
+              <strong><span th:text="${article.author}"></span></strong>
+              <p th:text="${article.entry}" />
+            </div>
+            <div class="card-footer">
+              <a th:href="@{/articles/} + ${article.articleId}"><button
+                  class="btn btn-info">Article Details</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <script th:replace="fragments/scripts"></script>
+</body>
+</html>

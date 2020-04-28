@@ -1,0 +1,18 @@
+<div th:fragment="articleForm">
+  <table class="table">
+    <tr>
+      <td>Title</td>
+      <td><input class="form-control" type="text" autofocus
+        th:placeholder="${article.title}" th:field="*{article.title}" /></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" id="articleAuthor" name="arthicleAuthor" 
+        th:value="${loggedInUser}" /></td>
+    </tr>
+    <tr>
+      <td>Entry</td>
+      <td><input class="form-control-lg" type="text"
+        th:placeholder="${article.entry}" th:field="*{article.entry}" /></td>
+    </tr>
+  </table>
+</div>

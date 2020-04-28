@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<link th:replace="fragments/headLinks">
+<title>David's Java Blog</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div th:replace="fragments/navbar"></div>
+      <form class="form-group" 
+        th:action="@{/articles/} + ${article.articleId} + @{/edit}" 
+        th:method="put">
+        <div th:replace="fragments/articleForm"></div>
+        <button class="btn btn-info" type="submit">Edit Article</button>
+      </form>
+    </div> 
+  <script th:replace="fragments/scripts"></script>
+</body>
+</html>
